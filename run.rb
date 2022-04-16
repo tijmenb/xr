@@ -37,15 +37,6 @@ schedule = [
   },
 ]
 
-schedule = [
-  {
-    repeat: 2,
-    desc: "Quadriceps stretch. Stand and pull leg to bottom",
-    duration: 5,
-    alternate: ["right leg", "left leg"],
-  },
-]
-
 entries = []
 current_time = 0
 
