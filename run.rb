@@ -1,7 +1,7 @@
 schedule = [
   {
     repeat: 2,
-    desc: "Quadriceps stretch. Stand and pull leg to bottom",
+    desc: "Do the quadriceps stretch. Stand and pull leg to bottom",
     duration: 30,
     alternate: ["right leg", "left leg"],
   },
@@ -13,9 +13,15 @@ schedule = [
   },
   {
     repeat: 2,
-    desc: "Figure 4 stretch",
+    desc: "Do the figure 4 stretch",
     duration: 30,
     alternate: ["right leg", "left leg"],
+  },
+  {
+    repeat: 1,
+    desc: "Take a break",
+    duration: 20,
+    alternate: [""],
   },
   {
     repeat: 3,
