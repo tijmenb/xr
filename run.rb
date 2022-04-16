@@ -44,7 +44,7 @@ schedule.each do |s|
   entries << { time: current_time, duration: 10, desc: "Prep for start new excercise in 10 seconds" }
   current_time = current_time + 10
 
-  s[:repeat].times do |time|
+  s[:repeat].times do
     s[:alternate].each do |alt|
       entries << { time: current_time, duration: s[:duration], desc: "#{s[:desc]} #{alt} for #{s[:duration]} seconds" }
       current_time = current_time + s[:duration]
