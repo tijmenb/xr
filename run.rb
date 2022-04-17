@@ -1,13 +1,13 @@
 schedule = [
   {
     repeat: 2,
-    desc: "Do the quadriceps stretch. Stand and pull leg to bottom",
+    desc: "Do the quadriceps stretch. Stand and pull up your",
     duration: 30,
     alternate: ["right leg", "left leg"],
   },
   {
     repeat: 2,
-    desc: "Lay on back and raise one leg",
+    desc: "Lay on your back and raise your",
     duration: 30,
     alternate: ["right leg", "left leg"],
   },
@@ -20,24 +20,24 @@ schedule = [
   {
     repeat: 1,
     desc: "Take a break",
-    duration: 20,
+    duration: 10,
     alternate: [""],
   },
   {
     repeat: 3,
     desc: "Do the diver 10 times",
-    duration: 40,
+    duration: 30,
     alternate: ["right leg", "left leg"],
   },
   {
     repeat: 3,
     desc: "Make a bridge 10 times",
-    duration: 40,
-    alternate: ["Arch your back"],
+    duration: 30,
+    alternate: [""],
   },
   {
     repeat: 3,
-    desc: "Split squat 10 times",
+    desc: "Do the squat 10 times",
     duration: 40,
     alternate: ["right leg", "left leg"],
   },
