@@ -1,59 +1,75 @@
 schedule = [
   {
-    repeat: 2,
-    desc: "Do the quadriceps stretch. Stand and pull up your",
-    duration: 30,
-    alternate: ["right leg", "left leg"],
-  },
-  {
-    repeat: 2,
-    desc: "Lay on your back and raise your",
-    duration: 30,
-    alternate: ["right leg", "left leg"],
-  },
-  {
-    repeat: 2,
-    desc: "Do the figure 4 stretch",
-    duration: 30,
-    alternate: ["right leg", "left leg"],
-  },
-  {
-    repeat: 1,
-    desc: "Take a break",
-    duration: 10,
-    alternate: [""],
-  },
-  {
     repeat: 3,
-    desc: "Do the diver 10 times",
-    duration: 30,
-    alternate: ["right leg", "left leg"],
+    if: true,
+    excercises: [
+      {
+        repeat: 3,
+        desc: "Do the quadriceps stretch. Stand and pull up your",
+        duration: 40,
+        alternate: ["right leg", "left leg"],
+      },
+      {
+        repeat: 3,
+        desc: "Lay on your back and raise your",
+        duration: 40,
+        alternate: ["right leg", "left leg"],
+      },
+      {
+        repeat: 3,
+        desc: "Do the figure 4 stretch",
+        duration: 40,
+        alternate: ["right leg", "left leg"],
+      },
+    ]
   },
   {
+    if: Time.now.day % 2 == 0,
     repeat: 3,
-    desc: "Make a bridge 10 times",
-    duration: 30,
-    alternate: [""],
-  },
-  {
-    repeat: 3,
-    desc: "Do the squat 10 times",
-    duration: 40,
-    alternate: ["right leg", "left leg"],
-  },
+    excercises: [
+      {
+      desc: "Do the diver 10 times",
+      duration: 30,
+      alternate: ["right leg", "left leg"],
+      },
+      {
+        desc: "Make a bridge 8 times and keep",
+        duration: 30,
+        alternate: ["your right leg in the air", "your left leg in the air"],
+      },
+      {
+        desc: "Do the squat 10 times",
+        duration: 40,
+        alternate: ["and keep your right leg forward", "and keep your left leg forward"],
+      },
+    ]
+  }
 ]
 
 entries = []
 current_time = 0
 
 schedule.each do |s|
+  unless s[:if]
+    entries << { time: current_time, duration: 10, desc: "Skipping other excercises" }
+    next
+  end
+
   entries << { time: current_time, duration: 10, desc: "Prep for start new excercise in 10 seconds" }
   current_time = current_time + 10
 
+  if !s[:excercises]
+    exies = [s]
+  else
+    exies = s[:excercises]
+  end
+
   s[:repeat].times do
-    s[:alternate].each do |alt|
-      entries << { time: current_time, duration: s[:duration], desc: "#{s[:desc]} #{alt} for #{s[:duration]} seconds" }
-      current_time = current_time + s[:duration]
+    exies.each do |x|
+      x[:alternate].each do |alt|
+        entries << { time: current_time, duration: x[:duration], desc: "#{x[:desc]} #{alt} for #{x[:duration]} seconds" }
+        current_time = current_time + x[:duration]
+      end
     end
   end
 end
